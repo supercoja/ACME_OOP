@@ -9,7 +9,8 @@ namespace ACME.BL
     public class Customer
     {
 
-        public Customer()
+       public Customer()
+            :this(0)
         {
 
         }
@@ -17,9 +18,12 @@ namespace ACME.BL
         public Customer(int _customerId)
         {
             this.CustomerId = _customerId;
+            AddressList =  new List<Address>();
         }
 
         public static int InstanceCount { get; set; }
+
+        public List<Address AddressList { get; set; }
 
         private string _lastName;
 
