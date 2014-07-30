@@ -23,7 +23,7 @@ namespace ACME.BL
 
         public static int InstanceCount { get; set; }
 
-        public List<Address AddressList { get; set; }
+        public List<Address> AddressList { get; set; }
 
         private string _lastName;
 

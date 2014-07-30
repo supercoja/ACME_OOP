@@ -8,14 +8,17 @@ namespace ACME.BL
 {
     public class CustomerRepository
     {
-        public bool Save()
-        {
-            return true;
-        }
+        private AddressRepository addressRepository { get; set; }
 
+        public CustomerRepository()
+        {
+            addressRepository = new AddressRepository();
+        }
         public Customer Retrieve(int _customerId)
         {
-            var _customer = new Customer(_customerId);
+            Customer _customer = new Customer(_customerId);
+            _customer.AddressList = addressRepository.RetrieveByCustomerId(_customerId).ToList();
+
             if (_customerId==1)
             {
               _customer.LastName = "Baggins";
@@ -28,6 +31,10 @@ namespace ACME.BL
         public List<Customer> Retrieve()
         {
             return new List<Customer>();
+        }
+        public bool Save()
+        {
+            return true;
         }
 
     }
