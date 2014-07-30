@@ -83,9 +83,6 @@ namespace ACME.BLTest
                 Assert.AreEqual(_expected.AddressList[i].Country, _actual.AddressList[i].Country);
                 Assert.AreEqual(_expected.AddressList[i].PostalCode, _actual.AddressList[i].PostalCode);
             }
-
         }
     }
-
-    
 }
