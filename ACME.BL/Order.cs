@@ -23,6 +23,11 @@ namespace ACME.BL
         public int OrderId { get; private set; }
         public List<OrderItem> orderItems { get; set; }
 
+        public override bool Validate()
+        {
+            return true;
+        }
+
         public string Log()
         {
             throw new NotImplementedException();

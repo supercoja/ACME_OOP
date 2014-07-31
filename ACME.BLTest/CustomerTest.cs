@@ -1,6 +1,7 @@
 ﻿using System;
 using ACME.BL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ACME.Common;
 
 namespace ACME.BLTest
 {
@@ -11,7 +12,6 @@ namespace ACME.BLTest
         public void FullNameValid()
         {
             //--Arrange
-
             Customer _customer = new Customer();
             _customer.FirstName = "Frodo";
             _customer.LastName = "Baggins";

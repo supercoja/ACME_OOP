@@ -52,8 +52,13 @@
   <ItemGroup>
     <Compile Include="StringHandlerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LogginServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ACME.BL\ACME.BL.csproj">
+      <Project>{1fab62c5-9c58-413f-be0f-282d7e0dc145}</Project>
+      <Name>ACME.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ACME.Common\ACME.Common.csproj">
       <Project>{7b4b631d-8962-44cd-95c0-f61c6da723ae}</Project>
       <Name>ACME.Common</Name>

@@ -8,11 +8,11 @@ namespace ACME.Common
 {
     public class LogginService
     {
-        public static WriteToFile(List<Object> _changedItems)
+        public static void WriteToFile(List<ILoggable> _changedItems)
         {
             foreach (var item in _changedItems)
 	        {
-                Console.WriteLine(item.log)
+                Console.WriteLine(item.Log());
          	}
         }
     }
