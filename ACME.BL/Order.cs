@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ACME.Common;
 
 namespace ACME.BL
 {
-    public class Order
+    public class Order : EntityBase, ILoggable
     {
         public Order()
         {
@@ -21,5 +22,10 @@ namespace ACME.BL
         public DateTimeOffset? OrderDate { get; set; }
         public int OrderId { get; private set; }
         public List<OrderItem> orderItems { get; set; }
+
+        public string Log()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

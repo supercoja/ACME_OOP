@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ACME.Common;
 
 namespace ACME.BL
 {
-    public class Customer
+    public class Customer : EntityBase, ILoggable
     {
 
        public Customer()
@@ -58,7 +59,7 @@ namespace ACME.BL
             }
         }
 
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
@@ -71,6 +72,15 @@ namespace ACME.BL
         public override string ToString()
         {
             return FullName;
+        }
+
+        public string Log()
+        {
+            var _logString = this.CustomerId + ": " +
+                             this.FullName + " " +
+                             "Email: " + this.EmailAddress + " " + 
+                              "Status " + this.EntityState.ToString();
+            return _logString;
         }
                 
     }

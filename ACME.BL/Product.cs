@@ -9,14 +9,21 @@ namespace ACME.BL
     public class Product : EntityBase
     {
         public Product()
+            :this(0)
         {
 
+        }
+
+        public Product(int _productId)
+        {
+            this.ProductId = _productId;
         }
 
         public string ProductName { get; set; }
         public string Description { get; set; }
         public Decimal? CurrentPrice { get; set; }
 
+        public int ProductId { get; private set; }
         public override bool Validate()
         {
             var isValid = true;
@@ -42,6 +49,15 @@ namespace ACME.BL
                 }
             }
             return _success;
+        }
+
+        public string Log()
+        {
+            var _logString = this.ProductId + ": " +
+                             this.ProductName + " " +
+                             "Detail: " + this.Description + " " +
+                             "Status " + this.EntityState.ToString();
+            return _logString;
         }
 
     }
