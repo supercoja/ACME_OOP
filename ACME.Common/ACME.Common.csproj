@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1FAB62C5-9C58-413F-BE0F-282D7E0DC145}</ProjectGuid>
+    <ProjectGuid>{7B4B631D-8962-44CD-95C0-F61C6DA723AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ACME.BL</RootNamespace>
-    <AssemblyName>ACME.BL</AssemblyName>
+    <RootNamespace>ACME.Common</RootNamespace>
+    <AssemblyName>ACME.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,17 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="AddressRepository.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerRepository.cs" />
-    <Compile Include="EntityBase.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="OrderDisplay.cs" />
-    <Compile Include="OrderDisplayItem.cs" />
-    <Compile Include="OrderItem.cs" />
-    <Compile Include="OrderRepository.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="StringHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

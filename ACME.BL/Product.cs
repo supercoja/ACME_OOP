@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACME.BL
 {
-    public class Product
+    public class Product : EntityBase
     {
         public Product()
         {
@@ -17,7 +17,7 @@ namespace ACME.BL
         public string Description { get; set; }
         public Decimal? CurrentPrice { get; set; }
 
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
@@ -26,5 +26,23 @@ namespace ACME.BL
 
             return isValid;
         }
+
+        public bool Save(Product _productToSave)
+        {
+            var _success = true;
+            if (_productToSave.HasChanges && _productToSave.IsValid)
+            {
+                if (_productToSave.IsNew)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            return _success;
+        }
+
     }
 }
