@@ -51,5 +51,10 @@ namespace ACME.BL
 
             return _orderDisplay;
         }
+
+        public void Add(Order _order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

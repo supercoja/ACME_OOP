@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACME.BL", "ACME.BL\ACME.BL.csproj", "{1FAB62C5-9C58-413F-BE0F-282D7E0DC145}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACME.Common", "ACME.Common\ACME.Common.csproj", "{7B4B631D-8962-44CD-95C0-F61C6DA723AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACME.CommonTest", "ACME.CommonTest\ACME.CommonTest.csproj", "{17387985-755B-4BCB-B3AE-0834A25547E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACME.Win", "ACME.Win\ACME.Win.csproj", "{F0F1542A-916F-4927-A67C-74D635E97B52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{17387985-755B-4BCB-B3AE-0834A25547E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17387985-755B-4BCB-B3AE-0834A25547E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17387985-755B-4BCB-B3AE-0834A25547E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F1542A-916F-4927-A67C-74D635E97B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F1542A-916F-4927-A67C-74D635E97B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F1542A-916F-4927-A67C-74D635E97B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F1542A-916F-4927-A67C-74D635E97B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

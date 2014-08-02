@@ -32,10 +32,21 @@ namespace ACME.BL
         {
             return new List<Customer>();
         }
+
+        public void Add(Customer _customer)
+        {
+
+        }
+
         public bool Save()
         {
             return true;
         }
 
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
