@@ -89,7 +89,7 @@ namespace ACME.BL
             throw new NotImplementedException();
         }
 
-        public object CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
+        public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
         {
             decimal goalStepCount = 0;
             decimal actualStepCount = 0;
@@ -98,15 +98,18 @@ namespace ACME.BL
             if (string.IsNullOrWhiteSpace(goalSteps)) throw new ArgumentException("Goal Must be Entered", "goalSteps");
             if (string.IsNullOrWhiteSpace(actualSteps)) throw new ArgumentException("Actual Steps Must be Entered", "actualSteps");
 
-            if (!decimal.TryParse(goalSteps, out goalStepCount)) throw new ArgumentException("Goal Must Be Numeric", "goalSteps");
+//            if (!decimal.TryParse(goalSteps, out goalStepCount)) throw new ArgumentException("Goal Must Be Numeric", "goalSteps");
+            if (!decimal.TryParse(goalSteps, out goalStepCount)) throw new ArgumentException("Goal Must Be Numeric");
+
             if (!decimal.TryParse(actualSteps, out actualStepCount)) throw new ArgumentException("Actual Steps Must Be Numeric", "actualSteps");
 
+            return CalculatePercentOfGoalSteps(goalStepCount, actualStepCount);
+        }
+
+        public decimal CalculatePercentOfGoalSteps(decimal goalStepCount, decimal actualStepCount)
+        {
             if (goalStepCount <= 0) throw new ArgumentException("Goal Must Be Greater Than 0", "goalSteps");
-
-            decimal.TryParse(goalSteps, out goalStepCount);
-            decimal.TryParse(actualSteps, out actualStepCount);
-
-            return (Convert.ToDecimal(actualSteps) / Convert.ToDecimal(goalSteps)) * 100; ;
+            return (actualStepCount / goalStepCount) * 100;
         }
     }
 }

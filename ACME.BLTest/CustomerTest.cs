@@ -114,8 +114,107 @@ namespace ACME.BLTest
 
             //--Assert
             Assert.AreEqual(_expected, _actual);
-
         }
 
+        [TestMethod]
+        public void ValidInputs()
+        {
+            //-- Arrange
+            var _customer = new Customer();
+            decimal _actualSteps = 2000;
+            decimal _goalSteps = 5000;
+
+            var _expected = 40;
+
+            //-- Act
+            var _actual = _customer.CalculatePercentOfGoalSteps(_goalSteps, _actualSteps);
+
+            //-- Assert
+            Assert.AreEqual(_expected, _actual);
+        }
+
+        [TestMethod]
+        public void TestValidInputsStrings()
+        {
+            //--Arrange
+            var _customer = new Customer();
+            string _actualSteps = "2000";
+            string _goalStesp = "5000";
+            decimal _expected = 40M;
+
+            //--Act
+            var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);
+
+            //--Assert
+            Assert.AreEqual(_expected, _actual);
+        }
+
+        [TestMethod]
+        public void CalculatePercentOfGoaStepsValidAndSameString()
+        {
+            var _customer = new Customer();
+            string _actualSteps = "5000";
+            string _goalStesp = "5000";
+            decimal _expected = 100M;
+
+            //--Act
+            var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);
+
+            //--Assert
+            Assert.AreEqual(_expected, _actual);
+        }
+
+        [TestMethod]
+        public void CalculatePercentOfGoaStepsValidActualIsZero()
+        {
+            var _customer = new Customer();
+            string _actualSteps = "0";
+            string _goalStesp = "5000";
+            decimal _expected = 0M;
+
+            //--Act
+            var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);
+
+            //--Assert
+            Assert.AreEqual(_expected, _actual);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CalculatePercentOfGoaStepsIsNull()
+        {
+            var _customer = new Customer();
+            string _actualSteps = "2000";
+            string _goalStesp = null;
+            decimal _expected = 0M;
+
+            //--Act
+            var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);
+
+            //--Assert
+//            Assert.AreEqual(_expected, _actual);            
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CalculatePercentOfGoalStepsEmpty()
+        {
+            var _customer = new Customer();
+            string _actualSteps = "2000";
+            string _goalStesp = "one";
+
+            //--Act
+            try
+            {
+                var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);
+            }
+            catch (Exception _exception)
+            {
+                Assert.AreEqual("Goal Must Be Numeric", _exception.Message);
+                throw;
+            }
+
+            //--Assert            
+        }
     }
 }
