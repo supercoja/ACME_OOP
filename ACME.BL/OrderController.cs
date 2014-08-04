@@ -30,10 +30,14 @@ namespace ACME.BL
 
             if (_emailReceipt)
             {
-                _customer.ValidateEmail();
-                _customerRepository.Update();
-
-                _emailLibrary.SendMail(_customer.EmailAddress, "Receipt From Vendor");
+                string _message = string.Empty;
+                var _valid = _customer.ValidateEmail(_message);
+                if (_valid)
+                {
+                    _customerRepository.Update();
+                    _emailLibrary.SendMail(_customer.EmailAddress, "Receipt From Vendor");
+                }
+               
             }
 
         }

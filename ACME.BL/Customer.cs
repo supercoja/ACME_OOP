@@ -83,19 +83,37 @@ namespace ACME.BL
             return _logString;
         }
 
-        public bool ValidateEmail()
+        public bool ValidateEmail(ref string _errorMessage)
         {
             var _valid = true;
 
-            if (!string.IsNullOrWhiteSpace(this.EmailAddress)) throw new ArgumentException("Email Addresss Is Null");
+            if (!string.IsNullOrWhiteSpace(this.EmailAddress)) 
+            {
+                _valid = false;
+                _message = "Email Addresss Is Null";
+            }
 
-            var _isValidFormat true;
+            if (_valid)
+            {
+             var _isValidFormat = true;
+            if (!_isValidFormat) 
+            {
+                _valid = false;
+                _errorMessage="Email Address is not in a correct Form";
+            }
+            }
 
-            if (!_isValidFormat) throw new ArgumentException("Email Address is not in a correct Form");
+            if (_valid)
+            {            var _isRealDomain = true;
 
-            var _isRealDomain = true;
+            if (!_isRealDomain) 
+            {
+                _valid = false;
+                _message = "Email Address Does not Include a valid domain";
+            }
 
-            if (!_isRealDomain) throw new ArgumentException("Email Address Does not Include a valid domain");
+            }
+                        return _valid;
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
