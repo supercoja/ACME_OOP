@@ -31,7 +31,7 @@ namespace ACME.BL
             if (_emailReceipt)
             {
                 string _message = string.Empty;
-                var _valid = _customer.ValidateEmail(_message);
+                var _valid = _customer.ValidateEmail(out _message);
                 if (_valid)
                 {
                     _customerRepository.Update();

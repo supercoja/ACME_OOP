@@ -83,7 +83,7 @@ namespace ACME.BL
             return _logString;
         }
 
-        public bool ValidateEmail(ref string _errorMessage)
+        public bool ValidateEmail(out string _errorMessage)
         {
             var _valid = true;
 
