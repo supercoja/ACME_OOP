@@ -83,10 +83,19 @@ namespace ACME.BL
             return _logString;
         }
 
-
-        public void ValidateEmail()
+        public bool ValidateEmail()
         {
-            throw new NotImplementedException();
+            var _valid = true;
+
+            if (!string.IsNullOrWhiteSpace(this.EmailAddress)) throw new ArgumentException("Email Addresss Is Null");
+
+            var _isValidFormat true;
+
+            if (!_isValidFormat) throw new ArgumentException("Email Address is not in a correct Form");
+
+            var _isRealDomain = true;
+
+            if (!_isRealDomain) throw new ArgumentException("Email Address Does not Include a valid domain");
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)

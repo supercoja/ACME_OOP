@@ -16,7 +16,8 @@ namespace ACME.Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PedometerWin());
+//            Application.Run(new PedometerWin());
+            Application.Run(new Form1());
         }
     }
 }
