@@ -30,8 +30,9 @@ namespace ACME.BL
 
             if (_emailReceipt)
             {
+
                 var _result = _customer.ValidateEmail();
-                if (_result.Item1==true)
+                if (_result.Sucess)
                 {
                     _customerRepository.Update();
                     _emailLibrary.SendMail(_customer.EmailAddress, "Receipt From Vendor");

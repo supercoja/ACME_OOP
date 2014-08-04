@@ -83,36 +83,38 @@ namespace ACME.BL
             return _logString;
         }
 
-        public Tuple<bool,string> ValidateEmail()
+        public OperationResult ValidateEmail()
         {
-            Tuple<bool, string> _result = Tuple.Create(true,string.Empty);
+            var _op = new OperationResult();
 
             if (!string.IsNullOrWhiteSpace(this.EmailAddress)) 
             {
-                _result = Tuple.Create(false, "Email Addresss Is Null");
+                _op.Sucess = false;
+                _op.AddMessage("Email Addresss Is Null");
             }
 
-            if (_result.Item1==true)
+            if (_op.Sucess)
             {
              var _isValidFormat = true;
             if (!_isValidFormat) 
             {
-                _result = Tuple.Create(false,"Email Address is not in a correct Form");
+                _op.Sucess = false;
+                _op.AddMessage("Email Address is not in a correct Form");
             }
             }
 
-            if (_result.Item1 == true)
+            if (_op.Sucess)
             {
                 var _isRealDomain = true;
 
             if (!_isRealDomain) 
             {
-
-                _result = Tuple.Create(false, "Email Address Does not Include a valid domain");
+                _op.Sucess = false;
+                _op.AddMessage("Email Address Does not Include a valid domain");
             }
 
             }
-            return _result;
+            return _op;
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
