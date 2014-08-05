@@ -17,14 +17,15 @@ namespace ACME.BL
     {
         public int PaymentType { get; set; }
 
-        public void ProcessPayment(Payment _payment)
+        public void ProcessPayment()
         {
-            if (!Enum.IsDefined(typeof(PaymentType),this.PaymentType))
+            PaymentType paymentTypeOption;
+            if (!Enum.TryParse(this.PaymentType.ToString(), out paymentTypeOption))
             {
                 throw new InvalidEnumArgumentException("Payment Type", (int)this.PaymentType, typeof(PaymentType));
             }
 
-            switch ((ACME.BL.PaymentType)this.PaymentType)
+            switch (paymentTypeOption)
             {
                 case ACME.BL.PaymentType.CreditCard:
                     // code for credit card

@@ -26,7 +26,7 @@ namespace ACME.BL
 
             _inventoryRepository.OrderItems(_order, _allowSplitOrders);
 
-            _payment.ProcessPayment(_payment);
+            _payment.ProcessPayment();
 
             if (_emailReceipt)
             {
