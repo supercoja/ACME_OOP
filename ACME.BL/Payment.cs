@@ -8,9 +8,21 @@ namespace ACME.BL
 {
     public class Payment
     {
+
+        public int PaymentType { get; set; }
         public void ProcessPayment(Payment _payment)
         {
-            throw new NotImplementedException();
+            switch (this.PaymentType)
+            {
+                case 1:
+                    // code
+                    break;
+                case 2:
+                    // code
+                    break;
+                default:
+                    throw new ArgumentException();
+            }
         }
     }
 }
