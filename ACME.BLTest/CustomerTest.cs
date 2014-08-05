@@ -186,7 +186,6 @@ namespace ACME.BLTest
             var _customer = new Customer();
             string _actualSteps = "2000";
             string _goalStesp = null;
-            decimal _expected = 0M;
 
             //--Act
             var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);

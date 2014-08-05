@@ -10,15 +10,21 @@ namespace ACME.BL
     {
 
         public int PaymentType { get; set; }
+
+        public enum PaymentTypeOption 
+        {
+            CreditCard = 1,
+            PayPal = 2
+        }
         public void ProcessPayment(Payment _payment)
         {
-            switch (this.PaymentType)
+            switch ((PaymentTypeOption)this.PaymentType)
             {
-                case 1:
-                    // code
+                case PaymentTypeOption.CreditCard:
+                    // code for credit card
                     break;
-                case 2:
-                    // code
+                case PaymentTypeOption.PayPal:
+                    // code for paypal
                     break;
                 default:
                     throw new ArgumentException();
