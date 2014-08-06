@@ -1,4 +1,5 @@
 ﻿using ACME.Common;
+using System;
 
 namespace ACME.BL
 {
@@ -18,8 +19,14 @@ namespace ACME.BL
              _emailLibrary = new EmailLibrary();
         }
 
-        public void PlaceOrder(Customer _customer, Order _order, Payment _payment, bool _allowSplitOrders, bool _emailReceipt)
+        public OperationResult PlaceOrder(Customer _customer, Order _order, Payment _payment, bool _allowSplitOrders, bool _emailReceipt)
         {
+            if (_customer == null) throw new ArgumentNullException("Customer Instance Is null");
+            if (_order == null) throw new ArgumentNullException("Order Instance Is Null");
+            if (_payment == null) throw new ArgumentNullException("Payment Instance Is Null");
+
+            var _op = new OperationResult();
+
             _customerRepository.Add(_customer);
 
             _orderRepository.Add(_order);
@@ -36,7 +43,18 @@ namespace ACME.BL
                     _customerRepository.Update();
                     _emailLibrary.SendMail(_customer.EmailAddress, "Receipt From Vendor");
                 }               
+                else
+                {
+                    // log messages;
+                    if (_result.MessageList.Count>0)
+                    {
+                        _op.AddMessage(_result.MessageList[0]);
+                    }
+//                    _result.Sucess = false;
+
+                }
             }
+            return _op;
 
         }
     }

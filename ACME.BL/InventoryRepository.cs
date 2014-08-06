@@ -10,7 +10,6 @@ namespace ACME.BL
     {
         public void OrderItems(Order _order, bool _allowSplitOrders)
         {
-            throw new NotImplementedException();
         }
     }
 }
