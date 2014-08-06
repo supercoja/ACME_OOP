@@ -27,7 +27,40 @@ namespace ACME.BLTest
             // -- Assert
             Assert.AreEqual(true, _op.Sucess);
             Assert.AreEqual(0, _op.MessageList.Count);
+        }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void PlaceOrderTestNullCustomer()
+        {
+            //-- Arrange
+            var _orderController = new OrderController();
+            Customer _customer = null;
+            var _order = new Order();
+            var _payment = new Payment() { PaymentType = 1 };
+
+            //-- Act
+            OperationResult _op = _orderController.PlaceOrder(_customer, _order, _payment, _allowSplitOrders: true, _emailReceipt:true);
+
+            //-- Assert
+        }
+
+        [TestMethod]
+        public void PlaceOrderTestInvalidEmail()
+        {
+            //-- Arrange
+            var _orderController = new OrderController();
+            var _customer = new Customer() { EmailAddress = "" };
+            var _order = new Order();
+            var _payment = new Payment() { PaymentType = 1 };
+
+            //-- Act
+            OperationResult _op = _orderController.PlaceOrder(_customer, _order, _payment, _allowSplitOrders: true, _emailReceipt: true);
+
+            //-- Assert
+            Assert.AreEqual(true, _op.Sucess);
+            Assert.AreEqual(1, _op.MessageList.Count);
+            Assert.AreEqual("Email Address Is Null", _op.MessageList[0]);
         }
     }
 }

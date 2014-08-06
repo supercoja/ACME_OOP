@@ -90,7 +90,7 @@ namespace ACME.BL
             if (string.IsNullOrWhiteSpace(this.EmailAddress)) 
             {
                 _op.Sucess = false;
-                _op.AddMessage("Email Addresss Is Null");
+                _op.AddMessage("Email Address Is Null");
             }
 
             if (_op.Sucess)

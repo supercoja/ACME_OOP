@@ -1,5 +1,6 @@
 ﻿using ACME.Common;
 using System;
+using System.Diagnostics;
 
 namespace ACME.BL
 {
@@ -26,6 +27,11 @@ namespace ACME.BL
             if (_payment == null) throw new ArgumentNullException("Payment Instance Is Null");
 
             var _op = new OperationResult();
+
+            Debug.Assert(_customerRepository != null, "Missing Customer Repository Instance");
+            Debug.Assert(_orderRepository != null, "Missing Order Repository Instance");
+            Debug.Assert(_inventoryRepository != null, "Missing Inventory Repository Instance");
+            Debug.Assert(_emailLibrary != null, "Missing Email Library Instance");
 
             _customerRepository.Add(_customer);
 
