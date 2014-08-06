@@ -10,7 +10,15 @@ namespace ACME.Common
     {
         public void SendMail(string _p1, string _p2)
         {
-
+            try
+            {
+                // send email
+            }
+            catch (InvalidOperationException _exp)
+            {
+                // log the Issue
+                throw;
+            }
         }
     }
 }

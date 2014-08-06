@@ -27,9 +27,16 @@ namespace ACME.Win
 
             var _orderController = new OrderController();
 
-            _orderController.PlaceOrder(_customer, _order, _payment, _allowSplitOrders:false, _emailReceipt:true);
+            try
+            {
+                _orderController.PlaceOrder(_customer, _order, _payment, _allowSplitOrders: false, _emailReceipt: true);
+            }
+            catch (ArgumentException _exp)
+            {
+                // log
+                // display a message to the user
+                MessageBox.Show("Your Order Cannot Be Placed. Try Again Later ");
+            }
         }
-
-
     }
 }

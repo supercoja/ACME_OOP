@@ -21,8 +21,16 @@ namespace ACME.Win
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             var _customer = new Customer();
-            var _result = _customer.CalculatePercentOfGoalSteps(this.txtStepGoalToday.Text, this.txtNumberOfStepsToday.Text);
-            ResultLabel.Text = "You Reached " + _result + "% of your goal!";
+            try
+            {
+                var _result = _customer.CalculatePercentOfGoalSteps(this.txtStepGoalToday.Text, this.txtNumberOfStepsToday.Text);
+                ResultLabel.Text = "You Reached " + _result + "% of your goal!";
+            }
+            catch (ArgumentException _exp)
+            {
+                MessageBox.Show("Invalid Entry " + _exp.Message);
+                ResultLabel.Text = string.Empty;
+            }
         }
     }
 }
