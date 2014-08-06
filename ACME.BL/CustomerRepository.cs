@@ -46,7 +46,7 @@ namespace ACME.BL
 
         public void Update()
         {
-            throw new NotImplementedException();
+         
         }
     }
 }

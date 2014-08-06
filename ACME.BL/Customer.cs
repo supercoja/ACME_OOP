@@ -87,7 +87,7 @@ namespace ACME.BL
         {
             var _op = new OperationResult();
 
-            if (!string.IsNullOrWhiteSpace(this.EmailAddress)) 
+            if (string.IsNullOrWhiteSpace(this.EmailAddress)) 
             {
                 _op.Sucess = false;
                 _op.AddMessage("Email Addresss Is Null");
