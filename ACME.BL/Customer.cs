@@ -119,8 +119,7 @@ namespace ACME.BL
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
         {
-
-            if (string.IsNullOrWhiteSpace(goalSteps)) throw new ArgumentException("Goal Must be Entered", "goalSteps");
+            if (string.IsNullOrWhiteSpace(goalSteps)) throw new ArgumentException("Goal Must be Entered");
             if (string.IsNullOrWhiteSpace(actualSteps)) throw new ArgumentException("Actual Steps Must be Entered", "actualSteps");
 
 //            if (!decimal.TryParse(goalSteps, out goalStepCount)) throw new ArgumentException("Goal Must Be Numeric", "goalSteps");

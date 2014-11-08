@@ -9,6 +9,7 @@ namespace ACME.BLTest
     public class CustomerTest
     {
         [TestMethod]
+        [TestCategory("Customer")]
         public void FullNameValid()
         {
             //--Arrange
@@ -26,6 +27,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Customer")]
         public void FullNameFirstNameEmpty()
         {
             //--Arrange
@@ -42,6 +44,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Customer")]
         public void FullNameLastNameEmpty()
         {
             //--Arrange
@@ -58,7 +61,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
-
+        [TestCategory("Customer")]
         public void ObjectStaticCount()
         {
             //--Arrange
@@ -84,6 +87,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Customer")]
         public void ValidateValid()
         {
             //--Arrange
@@ -101,6 +105,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Customer")]
         public void ValidateMissingLastName()
         {
             //--Arrange
@@ -117,6 +122,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Calculate_Goals")]
         public void ValidInputs()
         {
             //-- Arrange
@@ -134,6 +140,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Calculate_Goals")]
         public void TestValidInputsStrings()
         {
             //--Arrange
@@ -150,6 +157,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Calculate_Goals")]
         public void CalculatePercentOfGoaStepsValidAndSameString()
         {
             var _customer = new Customer();
@@ -165,6 +173,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
+        [TestCategory("Calculate_Goals")]
         public void CalculatePercentOfGoaStepsValidActualIsZero()
         {
             var _customer = new Customer();
@@ -180,21 +189,7 @@ namespace ACME.BLTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void CalculatePercentOfGoaStepsIsNull()
-        {
-            var _customer = new Customer();
-            string _actualSteps = "2000";
-            string _goalStesp = null;
-
-            //--Act
-            var _actual = _customer.CalculatePercentOfGoalSteps(_goalStesp, _actualSteps);
-
-            //--Assert
-//            Assert.AreEqual(_expected, _actual);            
-        }
-
-        [TestMethod]
+        [TestCategory("Calculate_Goals")]
         [ExpectedException(typeof(ArgumentException))]
         public void CalculatePercentOfGoalStepsEmpty()
         {
@@ -214,6 +209,29 @@ namespace ACME.BLTest
             }
 
             //--Assert            
+        }
+
+        [TestMethod]
+        [TestCategory("Calculate_Goals")]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CalculatePercentOfGoal_GuardClauses_Validating_GoalStepsEmpty()
+        { 
+            //-- Arrange
+            var _customer = new Customer();
+            string _actualSteps = "2000";
+            string _goalSteps   = null;
+
+            //-- Act
+            try
+            {
+                var _actual = _customer.CalculatePercentOfGoalSteps(_goalSteps, _actualSteps);
+            }
+            catch (Exception _exception)
+            {
+                Assert.AreEqual("Goal Must be Entered", _exception.Message);
+                throw;
+            }
+            //-- Assert
         }
     }
 }

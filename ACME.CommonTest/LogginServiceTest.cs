@@ -35,7 +35,7 @@ namespace ACME.CommonTest
            //-- Act
            LogginService.WriteToFile(_changedItems);
 
-            //-- Arrange
+            //-- Assert
         }
     }
 }
