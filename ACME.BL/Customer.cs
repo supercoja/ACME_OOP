@@ -122,7 +122,6 @@ namespace ACME.BL
             if (string.IsNullOrWhiteSpace(goalSteps)) throw new ArgumentException("Goal Must be Entered");
             if (string.IsNullOrWhiteSpace(actualSteps)) throw new ArgumentException("Actual Steps Must be Entered", "actualSteps");
 
-//            if (!decimal.TryParse(goalSteps, out goalStepCount)) throw new ArgumentException("Goal Must Be Numeric", "goalSteps");
             decimal goalStepCount = 0;
             if (!decimal.TryParse(goalSteps, out goalStepCount)) throw new ArgumentException("Goal Must Be Numeric");
 
